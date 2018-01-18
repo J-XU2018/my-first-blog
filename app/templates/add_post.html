@@ -1,23 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Edit Profile</h1>
-  <form action="/edit_profile" method = "POST">
+  <h1>Add Post</h1>
+  <form action="/add_post" method = "POST">
       {{ form.hidden_tag() }}
     <!-- {{ form.hidden_tag() }} -->
   <!-- {{ form.csrf_token }} -->
 
     <p>
-      {{ form.username.label }}<br>
-      {{ form.username(size=32) }}<br>
+      <!-- {{ form.username.label }}<br> -->
+      <!-- {{ form.username(size=32) }}<br> -->
+      <p>{{ current_user.username }} What you want write for today:</p>
       {% for error in form.username.errors %}
       <span style="color: red;">[{{ error }}]</span>
       {% endfor %}
     </p>
     <p>
-      {{ form.about_me.label }}<br>
-      {{ form.about_me(cols=50, rows=4) }}<br>
-      {% for error in form.about_me.errors %}
+      {{ form.body.label }}<br>
+      {{ form.body(cols=50, rows=4) }}<br>
+      {% for error in form.body.errors %}
       <span style="color: red;">[{{ error }}]</span>
       {% endfor %}
     </p>

@@ -6,6 +6,7 @@ from flask_login import LoginManager
 
 app = Flask(__name__)
 app.config.from_object(Config)
+# app.config["SECRET_KEY"] = "a secret key you won't forget"
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login = LoginManager(app)
